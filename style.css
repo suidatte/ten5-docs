@@ -744,6 +744,19 @@ body {
   border: 1px solid var(--color-border);
   background: var(--color-bg-elevated);
 }
+.doc-figure__video {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: #000;
+}
+.doc-page .doc-note {
+  color: #c45c26 !important;
+  font-size: var(--text-small);
+  margin: var(--space-sm) 0 var(--space-md);
+}
 .doc-code {
   margin: 0 0 var(--space-md);
   padding: var(--space-sm);
