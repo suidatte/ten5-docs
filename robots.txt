@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://suistudio00.github.io/ten5bot-docs/sitemap.xml
+Sitemap: https://suidatte.github.io/ten5bot-docs/sitemap.xml
