@@ -253,38 +253,85 @@ body {
   position: relative;
   z-index: 1;
   padding: calc(80px + var(--space-2xl)) var(--space-md) var(--space-xl);
-  text-align: center;
 }
 .top-section__inner {
-  margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-xl);
+}
+.top-section__text {
+  text-align: left;
 }
 .top-section__title {
   margin: 0 0 var(--space-md);
-  font-size: clamp(1.25rem, 5vw, 3rem);
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
   font-weight: var(--weight-bold);
   line-height: var(--line-tight);
   letter-spacing: -0.02em;
   color: var(--color-text);
-  text-align: center;
 }
 .top-section__title-line {
   display: block;
   white-space: nowrap;
 }
 .top-section__lead {
-  max-width: 520px;
-  margin: 0 auto var(--space-lg);
+  margin: 0 0 var(--space-lg);
   font-size: var(--text-body);
   color: var(--color-text-muted);
   line-height: var(--line-normal);
 }
 .top-section__cta {
   margin: 0;
-  text-align: center;
+}
+.top-section__cta .invite-agree__item {
+  margin-bottom: var(--space-sm);
 }
 .top-section__cta .btn {
   white-space: nowrap;
+}
+
+/* 右カラム：3Dアイコン */
+.top-section__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
+}
+.top-section__icon-3d {
+  transform: rotateY(-12deg) rotateX(8deg);
+  transition: transform 0.5s ease;
+}
+.top-section__icon-3d:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+}
+.top-section__icon-img {
+  display: block;
+  width: clamp(120px, 18vw, 200px);
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .top-section__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .top-section__text {
+    text-align: center;
+    order: 1;
+  }
+  .top-section__visual {
+    order: 0;
+    margin-bottom: var(--space-md);
+  }
+  .top-section__icon-img {
+    width: 120px;
+  }
+  .top-section__cta .invite-agree__item {
+    justify-content: center;
+  }
 }
 
 /* ボタン：フラット寄り・洗練 */

@@ -4,21 +4,32 @@
   /* モバイルメニュー開閉 */
   var menuBtn = document.querySelector('.header__menu-btn');
   var mobileNav = document.getElementById('nav-menu');
+  function closeMobileNav() {
+    mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'メニューを開く');
+  }
   if (menuBtn && mobileNav) {
-    menuBtn.addEventListener('click', function () {
-      var open = mobileNav.getAttribute('aria-hidden') !== 'true';
-      mobileNav.classList.toggle('is-open', !open);
-      mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.contains('is-open');
+      if (isOpen) {
+        closeMobileNav();
+      } else {
+        mobileNav.classList.add('is-open');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuBtn.setAttribute('aria-label', 'メニューを閉じる');
+      }
     });
     mobileNav.querySelectorAll('.nav__link').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileNav.classList.remove('is-open');
-        mobileNav.setAttribute('aria-hidden', 'true');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.setAttribute('aria-label', 'メニューを開く');
-      });
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('click', function (e) {
+      if (mobileNav.classList.contains('is-open') && !mobileNav.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMobileNav();
+      }
     });
   }
 
@@ -53,7 +64,14 @@
     document.getElementById('invite-btn-modal')
   );
 
-  /* 招待モーダル：「招待する」「Botを招待する」クリックで表示 */
+  /* ヒーロー：1つのチェックボックスで招待ボタン有効化 */
+  setupInviteButton(
+    document.getElementById('agree-hero'),
+    document.getElementById('agree-hero'),
+    document.getElementById('invite-btn-hero')
+  );
+
+  /* 招待モーダル：ヘッダー「招待する」クリックで表示 */
   var inviteModal = document.getElementById('invite-modal');
   var inviteModalTriggers = document.querySelectorAll('[data-invite-modal]');
   var modalCloseBtns = document.querySelectorAll('[data-modal-close]');
