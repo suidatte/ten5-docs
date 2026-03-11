@@ -48,11 +48,6 @@
     update();
   }
   setupInviteButton(
-    document.getElementById('agree-terms'),
-    document.getElementById('agree-privacy'),
-    document.getElementById('invite-btn')
-  );
-  setupInviteButton(
     document.getElementById('agree-terms-modal'),
     document.getElementById('agree-privacy-modal'),
     document.getElementById('invite-btn-modal')
