@@ -18,9 +18,9 @@
       <a href="index.html" class="header__brand" aria-label="ten5Bot for VALORANT トップへ">ten5Bot for VALORANT</a>
       <nav class="nav" aria-label="メインナビゲーション">
         <ul class="nav__list">
-          <li><a href="usage/" class="nav__link">使い方</a></li>
-          <li><a href="terms/" class="nav__link">利用規約</a></li>
-          <li><a href="privacy/" class="nav__link">プライバシーポリシー</a></li>
+          <li><a href="usage.html" class="nav__link">使い方</a></li>
+          <li><a href="terms.html" class="nav__link">利用規約</a></li>
+          <li><a href="privacy.html" class="nav__link">プライバシーポリシー</a></li>
           <li><a href="#invite-section" class="nav__link nav__link--cta" data-invite-modal>招待する</a></li>
         </ul>
       </nav>
@@ -30,9 +30,9 @@
     </div>
     <div class="header__mobile" id="nav-menu" aria-hidden="true">
       <ul class="nav__list nav__list--mobile">
-        <li><a href="usage/" class="nav__link">使い方</a></li>
-        <li><a href="terms/" class="nav__link">利用規約</a></li>
-        <li><a href="privacy/" class="nav__link">プライバシーポリシー</a></li>
+        <li><a href="usage.html" class="nav__link">使い方</a></li>
+        <li><a href="terms.html" class="nav__link">利用規約</a></li>
+        <li><a href="privacy.html" class="nav__link">プライバシーポリシー</a></li>
         <li><a href="#invite-section" class="nav__link nav__link--cta" data-invite-modal>招待する</a></li>
       </ul>
     </div>
@@ -47,12 +47,12 @@
         <label class="invite-agree__item">
           <input type="checkbox" name="agree-terms-modal" id="agree-terms-modal" class="invite-agree__input">
           <span class="invite-agree__check"></span>
-          <span><a href="terms/">利用規約</a>に同意する</span>
+          <span><a href="terms.html">利用規約</a>に同意する</span>
         </label>
         <label class="invite-agree__item">
           <input type="checkbox" name="agree-privacy-modal" id="agree-privacy-modal" class="invite-agree__input">
           <span class="invite-agree__check"></span>
-          <span><a href="privacy/">プライバシーポリシー</a>に同意する</span>
+          <span><a href="privacy.html">プライバシーポリシー</a>に同意する</span>
         </label>
       </div>
       <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn-modal" class="btn btn--primary btn--block invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
@@ -62,38 +62,31 @@
   </div>
 
   <main>
-    <!-- ヒーロー：キャッチコピーと招待カード -->
+    <!-- ヒーロー：キャッチコピーとデモ -->
     <section class="hero" id="invite-section">
       <div class="hero__inner">
         <div class="hero__content">
           <h1 class="hero__title">
-            <span class="hero__title-line">カスタム運営を、</span><br>
+            <span class="hero__title-line">VALORANTカスタム運営を、</span><br>
             <span class="hero__title-line">もっとスムーズに。</span>
           </h1>
           <p class="hero__sub">
-            ten5Botは、シンプルな操作に特化した、軽量で扱いやすいDiscord Botです。<br>
-            ランク登録からチーム分けまで、誰でも簡単に操作できます。
+            ten5Botは、シンプルな操作に特化した、誰でも簡単に扱いやすいDiscord Botです。
           </p>
-        </div>
-        <div class="hero__invite">
-          <div class="card card--invite">
-            <div class="invite-agree">
-              <label class="invite-agree__item">
-                <input type="checkbox" name="agree-terms" id="agree-terms" class="invite-agree__input">
-                <span class="invite-agree__check"></span>
-                <span><a href="terms/">利用規約</a>に同意する</span>
-              </label>
-              <label class="invite-agree__item">
-                <input type="checkbox" name="agree-privacy" id="agree-privacy" class="invite-agree__input">
-                <span class="invite-agree__check"></span>
-                <span><a href="privacy/">プライバシーポリシー</a>に同意する</span>
-              </label>
-            </div>
-            <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn" class="btn btn--primary btn--block invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
+          <div class="hero__invite-block invite-agree">
+            <label class="invite-agree__item">
+              <input type="checkbox" name="agree-hero" id="agree-hero" class="invite-agree__input">
+              <span class="invite-agree__check"></span>
+              <span><a href="terms.html">利用規約</a>および<a href="privacy.html">プライバシーポリシー</a>に同意します。</span>
+            </label>
+            <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn-hero" class="btn btn--primary invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
               Botを招待する
             </a>
           </div>
         </div>
+        <figure class="hero__demo" aria-label="デモ">
+          <img class="hero__demo-image" src="img/ten5_icon1.png" alt="ten5Bot アイコン" loading="lazy">
+        </figure>
       </div>
     </section>
 
@@ -102,8 +95,8 @@
       <div class="container">
         <h2 class="section__title">使い方</h2>
         <div class="section__body">
-          <p class="section__lead">ランク登録からチーム分けまで、マウス操作だけで完了します。詳しい手順は使い方ページをご覧ください。</p>
-          <p class="usage-link"><a href="usage/" class="text-link">使い方を見る →</a></p>
+          <p class="section__lead">ランク登録からチーム分けまで、マウス操作だけで完了します。<br>詳しい手順は使い方ページをご覧ください。</p>
+          <p class="usage-link"><a href="usage.html" class="text-link">使い方を見る →</a></p>
         </div>
       </div>
     </section>
@@ -113,7 +106,6 @@
       <div class="container">
         <h2 class="section__title">このBotを選ぶ理由</h2>
         <div class="section__body">
-        <p class="section__lead">VALORANTカスタム運営を快適にする、ten5Botの特徴です。</p>
         <ul class="feature-list">
           <li class="feature-item">
             <h3 class="feature-item__title">マウスで完結！簡単操作</h3>
@@ -137,9 +129,9 @@
     <div class="container footer__inner">
       <div class="footer__brand">ten5Bot</div>
       <nav class="footer__nav" aria-label="フッターナビゲーション">
-        <a href="usage/">使い方</a>
-        <a href="terms/">利用規約</a>
-        <a href="privacy/">プライバシーポリシー</a>
+        <a href="usage.html">使い方</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
         <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" target="_blank" rel="noopener noreferrer">招待リンク</a>
       </nav>
       <p class="footer__copy">&copy; ten5Bot. All rights reserved.</p>

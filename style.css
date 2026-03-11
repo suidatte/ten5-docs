@@ -239,16 +239,16 @@ body {
 .hero {
   position: relative;
   z-index: 1;
-  padding: calc(80px + var(--space-3xl)) var(--space-md) var(--space-xl);
+  padding: calc(80px + var(--space-3xl)) var(--space-md) var(--space-2xl);
   text-align: center;
 }
 .hero__inner {
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
+  gap: calc(var(--space-2xl) + var(--space-sm));
   align-items: start;
   padding: 0 var(--space-md);
   box-sizing: border-box;
@@ -256,11 +256,12 @@ body {
 /* 十分な幅があるときだけ2カラム（テキスト｜カード） */
 @media (min-width: 960px) {
   .hero__inner {
-    grid-template-columns: 1fr 400px;
-    gap: var(--space-2xl) var(--space-xl);
+    grid-template-columns: 1.1fr minmax(0, 640px);
+    gap: var(--space-3xl) var(--space-3xl);
     text-align: left;
+    align-items: center;
     padding-left: var(--space-md);
-    padding-right: var(--space-xl);
+    padding-right: var(--space-2xl);
   }
 }
 .hero__title {
@@ -270,6 +271,11 @@ body {
   line-height: var(--line-tight);
   letter-spacing: -0.02em;
   color: var(--color-text);
+}
+@media (max-width: 599px) {
+  .hero__title {
+    font-size: clamp(1.15rem, 4.8vw, 2rem);
+  }
 }
 .hero__title-line {
   display: inline-block;
@@ -283,6 +289,25 @@ body {
   color: var(--color-text-muted);
   max-width: 32em;
 }
+@media (min-width: 960px) {
+  .hero__sub {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+.hero__invite-block {
+  margin-top: var(--space-lg);
+}
+.hero__invite-block .invite-agree__item { margin-bottom: var(--space-sm); }
+.hero__invite-block .invite-btn {
+  margin-top: var(--space-xs);
+  white-space: nowrap;
+}
+@media (min-width: 600px) {
+  .hero__invite-block .invite-agree__item span:last-child {
+    white-space: nowrap;
+  }
+}
 .hero__content {
   margin: 0 auto;
   max-width: 32em;
@@ -292,20 +317,33 @@ body {
 @media (min-width: 960px) {
   .hero__content { margin: 0; max-width: 28em; }
 }
-.hero__invite {
+
+/* ヒーローのデモ（画像） */
+.hero__demo {
+  margin: 0;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   min-width: 0;
+  position: relative;
 }
-.hero__invite .card--invite {
-  width: 100%;
-  max-width: 420px;
-  min-width: 0;
+.hero__demo-image {
+  display: block;
+  width: min(360px, 70vw);
+  height: auto;
+  border-radius: 28px;
+  transform: perspective(1200px) rotateX(8deg) rotateY(-10deg);
+  transform-origin: center;
+}
+@media (max-width: 959px) {
+  .hero__demo-image {
+    width: min(320px, 70vw);
+    transform: perspective(1000px) rotateX(6deg) rotateY(-6deg);
+  }
 }
 @media (min-width: 960px) {
-  .hero__invite { justify-content: flex-end; }
-  .hero__invite .card--invite { max-width: 400px; }
+  .hero__demo { justify-content: flex-end; }
+  .hero__demo-image { width: 360px; }
 }
 .hero__cta {
   display: flex;
@@ -443,6 +481,9 @@ body {
   z-index: 1;
   padding: var(--space-xl) var(--space-md);
 }
+#usage-section {
+  background: var(--color-bg-elevated);
+}
 .section__title {
   margin: 0 0 var(--space-sm);
   font-size: var(--text-h2);
@@ -473,27 +514,6 @@ body {
 .usage-link {
   text-align: center;
   margin: 0;
-}
-
-/* カード：白基調で軽い影 */
-.card {
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-}
-.card--invite {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space-xl);
-  box-sizing: border-box;
-}
-.card--feature { max-width: 560px; margin: 0 auto; }
-.card__text {
-  margin: 0;
-  color: var(--color-text-muted);
-  line-height: var(--line-normal);
 }
 
 /* すっきり、ひとつに：特徴リスト */
