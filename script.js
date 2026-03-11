@@ -52,14 +52,8 @@
     document.getElementById('agree-privacy-modal'),
     document.getElementById('invite-btn-modal')
   );
-  /* ヒーロー：1つのチェックボックスで招待ボタン有効化 */
-  setupInviteButton(
-    document.getElementById('agree-hero'),
-    document.getElementById('agree-hero'),
-    document.getElementById('invite-btn-hero')
-  );
 
-  /* 招待モーダル：ヘッダー「招待する」クリックで表示 */
+  /* 招待モーダル：「招待する」「Botを招待する」クリックで表示 */
   var inviteModal = document.getElementById('invite-modal');
   var inviteModalTriggers = document.querySelectorAll('[data-invite-modal]');
   var modalCloseBtns = document.querySelectorAll('[data-modal-close]');

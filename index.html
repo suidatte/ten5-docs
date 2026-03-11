@@ -15,7 +15,10 @@
 
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="index.html" class="header__brand" aria-label="ten5Bot for VALORANT トップへ">ten5Bot for VALORANT</a>
+      <a href="index.html" class="header__brand" aria-label="ten5Bot for VALORANT トップへ">
+        <img src="img/ten5_icon1.png" alt="" class="header__brand-icon" width="28" height="28">
+        <span class="header__brand-text">ten5Bot<span class="header__brand-suffix"> for VALORANT</span></span>
+      </a>
       <nav class="nav" aria-label="メインナビゲーション">
         <ul class="nav__list">
           <li><a href="usage.html" class="nav__link">使い方</a></li>
@@ -43,6 +46,9 @@
     <div class="modal__backdrop" data-modal-close></div>
     <div class="modal__content">
       <button type="button" class="modal__close" aria-label="閉じる" data-modal-close></button>
+      <p class="modal__icon-wrap">
+        <img src="img/ten5_icon1.png" alt="" class="modal__icon" width="48" height="48">
+      </p>
       <div class="invite-agree">
         <label class="invite-agree__item">
           <input type="checkbox" name="agree-terms-modal" id="agree-terms-modal" class="invite-agree__input">
@@ -62,31 +68,19 @@
   </div>
 
   <main>
-    <!-- ヒーロー：キャッチコピーとデモ -->
-    <section class="hero" id="invite-section">
-      <div class="hero__inner">
-        <div class="hero__content">
-          <h1 class="hero__title">
-            <span class="hero__title-line">VALORANTカスタム運営を、</span><br>
-            <span class="hero__title-line">もっとスムーズに。</span>
-          </h1>
-          <p class="hero__sub">
-            ten5Botは、シンプルな操作に特化した、誰でも簡単に扱いやすいDiscord Botです。
-          </p>
-          <div class="hero__invite-block invite-agree">
-            <label class="invite-agree__item">
-              <input type="checkbox" name="agree-hero" id="agree-hero" class="invite-agree__input">
-              <span class="invite-agree__check"></span>
-              <span><a href="terms.html">利用規約</a>および<a href="privacy.html">プライバシーポリシー</a>に同意します。</span>
-            </label>
-            <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn-hero" class="btn btn--primary invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
-              Botを招待する
-            </a>
-          </div>
-        </div>
-        <figure class="hero__demo" aria-label="デモ">
-          <img class="hero__demo-image" src="img/ten5_icon1.png" alt="ten5Bot アイコン" loading="lazy">
-        </figure>
+    <!-- トップ：キャッチコピーと招待 -->
+    <section class="top-section" id="invite-section">
+      <div class="container top-section__inner">
+        <h1 class="top-section__title">
+          <span class="top-section__title-line">VALORANTカスタム運営を、</span>
+          <span class="top-section__title-line">もっとスムーズに。</span>
+        </h1>
+        <p class="top-section__lead">
+          ten5Botは、シンプルな操作に特化した、誰でも簡単に扱いやすいDiscord Botです。
+        </p>
+        <p class="top-section__cta">
+          <a href="#" class="btn btn--primary" data-invite-modal>Botを招待する</a>
+        </p>
       </div>
     </section>
 
