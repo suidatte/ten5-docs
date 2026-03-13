@@ -1,4 +1,184 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ten5 Bot - VALORANTカスタムのチーム分け・運営を、Discordでスムーズに。カスタム募集/管理/進行を快適にするDiscord Botです。">
+  <title>ten5 Bot | VALORANTカスタムのチーム分けをDiscord</title>
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://suidatte.github.io/ten5-docs/">
+  <link rel="alternate" hreflang="ja" href="https://suidatte.github.io/ten5-docs/">
+  <link rel="alternate" hreflang="x-default" href="https://suidatte.github.io/ten5-docs/">
+  <meta name="theme-color" content="#9a91f8">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="ten5 Bot">
+  <meta property="og:title" content="ten5 Bot | VALORANTカスタムのチーム分けをDiscordで">
+  <meta property="og:description" content="VALORANTカスタムのチーム分け・運営をDiscordでスムーズに。ten5 Botはカスタム募集/管理/進行を快適にするDiscord Botです。">
+  <meta property="og:url" content="https://suidatte.github.io/ten5-docs/">
+  <meta property="og:image" content="https://suidatte.github.io/ten5-docs/img/ogp.jpg">
+  <meta property="og:image:alt" content="ten5 Bot - VALORANTカスタムのチーム分けをDiscordで">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ten5 Bot | VALORANTカスタムのチーム分けをDiscordで">
+  <meta name="twitter:description" content="VALORANTカスタムのチーム分け・運営をDiscordでスムーズに。ten5 Botはカスタム募集/管理/進行を快適にするDiscord Botです。">
+  <meta name="twitter:image" content="https://suidatte.github.io/ten5-docs/img/ogp.jpg">
+  <meta name="twitter:image:alt" content="ten5 Bot - VALORANTカスタムのチーム分けをDiscordで">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/ten5_icon1.png">
+</head>
+<body>
+  <!-- 背景のぼかしグラデーション blob -->
+  <div class="bg-blob bg-blob--1" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--2" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__brand" aria-label="ten5 Bot for VALORANT トップへ">
+        <img src="img/ten5_icon1.png" alt="" class="header__brand-icon" width="28" height="28">
+        <span class="header__brand-text">ten5 Bot<span class="header__brand-suffix"> for VALORANT</span></span>
+      </a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <ul class="nav__list">
+          <li><a href="manual/" class="nav__link">使い方</a></li>
+          <li><a href="terms/" class="nav__link">利用規約</a></li>
+          <li><a href="privacy/" class="nav__link">プライバシーポリシー</a></li>
+          <li><a href="#invite-section" class="nav__link nav__link--cta" data-invite-modal>招待する</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header__menu-btn" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-menu">
+        <span class="header__menu-icon"></span>
+      </button>
+    </div>
+    <div class="header__mobile" id="nav-menu" aria-hidden="true">
+      <ul class="nav__list nav__list--mobile">
+        <li><a href="manual/" class="nav__link">使い方</a></li>
+        <li><a href="terms/" class="nav__link">利用規約</a></li>
+        <li><a href="privacy/" class="nav__link">プライバシーポリシー</a></li>
+        <li><a href="#invite-section" class="nav__link nav__link--cta" data-invite-modal>招待する</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 招待モーダル -->
+  <div class="modal" id="invite-modal" role="dialog" aria-modal="true" aria-label="Botを招待" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__content">
+      <button type="button" class="modal__close" aria-label="閉じる" data-modal-close></button>
+      <p class="modal__icon-wrap">
+        <img src="img/ten5_icon1.png" alt="" class="modal__icon" width="48" height="48">
+      </p>
+      <div class="invite-agree">
+        <label class="invite-agree__item">
+          <input type="checkbox" name="agree-terms-modal" id="agree-terms-modal" class="invite-agree__input">
+          <span class="invite-agree__check"></span>
+          <span><a href="terms/">利用規約</a>に同意する</span>
+        </label>
+        <label class="invite-agree__item">
+          <input type="checkbox" name="agree-privacy-modal" id="agree-privacy-modal" class="invite-agree__input">
+          <span class="invite-agree__check"></span>
+          <span><a href="privacy/">プライバシーポリシー</a>に同意する</span>
+        </label>
+      </div>
+      <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn-modal" class="btn btn--primary btn--block invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
+        Botをサーバーに招待する
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ヒーロー -->
+    <section class="top-section" id="invite-section">
+      <div class="container container--wide top-section__inner">
+        <div class="top-section__text">
+          <h1 class="top-section__title">
+            <span class="top-section__title-line">VALORANTカスタム運営を、</span>
+            <span class="top-section__title-line">もっとスムーズに。</span>
+          </h1>
+          <p class="top-section__lead">
+            ten5 Botは、シンプルな操作に特化した、誰でも簡単に扱いやすいVALORANTカスタム用Discord Botです。
+          </p>
+          <div class="top-section__cta">
+            <label class="invite-agree__item">
+              <input type="checkbox" id="agree-hero" class="invite-agree__input">
+              <span class="invite-agree__check"></span>
+              <span><a href="terms/">利用規約</a>および<a href="privacy/">プライバシーポリシー</a>に同意します。</span>
+            </label>
+            <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" id="invite-btn-hero" class="btn btn--primary invite-btn" aria-disabled="true" target="_blank" rel="noopener noreferrer">
+              Botをサーバーに招待する
+            </a>
+          </div>
+        </div>
+        <div class="top-section__visual" aria-hidden="true">
+          <div class="top-section__icon-3d">
+            <img src="img/ten5_icon1.png" alt="" class="top-section__icon-img" width="180" height="180">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 使い方 への導線 -->
+    <section class="section" id="usage-section">
+      <div class="container">
+        <h2 class="section__title">使い方</h2>
+        <div class="section__body">
+          <p class="section__lead">
+            ランク登録からチーム分けまで、マウス操作だけで完了します。<br>
+            詳しい手順は使い方ページをご覧ください。
+          </p>
+          <p class="usage-link"><a href="manual/" class="text-link">使い方を見る →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- このBotを選ぶ理由 -->
+    <section class="section section--features">
+      <div class="container">
+        <h2 class="section__title">このBotを選ぶ理由</h2>
+        <div class="section__body">
+          <ul class="feature-list">
+            <li class="feature-item">
+              <h3 class="feature-item__title">マウスで完結！簡単操作</h3>
+              <p class="feature-item__desc">
+                ランク登録やチーム分け時にコマンド入力は不要。ボタンとメニュー操作だけで完結します。
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3 class="feature-item__title">不要な通知を抑制</h3>
+              <p class="feature-item__desc">
+                カスタム参加者以外には不要なBotメッセージを極力送らない設計で、サーバー全体がスッキリします。
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3 class="feature-item__title">継続的なメンテナンス</h3>
+              <p class="feature-item__desc">
+                ユーザーの声をもとに、VALORANTカスタム運営に役立つ機能を今後も検討・追加していきます。
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">ten5 Bot</div>
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <a href="manual/">使い方</a>
+        <a href="terms/">利用規約</a>
+        <a href="privacy/">プライバシーポリシー</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1461335201685831790&amp;permissions=8&amp;integration_type=0&amp;scope=bot+applications.commands" target="_blank" rel="noopener noreferrer">招待リンク</a>
+      </nav>
+      <p class="footer__copy">&copy; ten5 Bot. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
